@@ -11,7 +11,7 @@ from core import (
 
 
 def main():
-    st.title("Optimal Path Detecting with Greedy Cost Minimization")
+    st.title("Optimal Path Detection with Greedy Cost Minimization")
 
     st.subheader("Inputs")
 
@@ -71,6 +71,10 @@ def main():
             nodes_to_avoid = st.multiselect(
                 "Nodes to avoid", options=list(range(1, num_nodes + 1))
             )
+
+    target_demand = st.slider(
+        "Target demand", min_value=0, max_value=1000, value=0, step=10
+    )
 
     st.subheader("Transforms")
 
