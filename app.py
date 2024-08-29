@@ -91,6 +91,21 @@ def main():
         st.write(capacity_matrix)
         st.write(cost_matrix)
 
+    st.subheader("Initial Path Visualization")
+
+    results = combinative_greedy_dfs(
+        cost_matrix=cost_matrix,
+        capacity_matrix=capacity_matrix,
+        super_source=0,
+        super_target=len(capacity_matrix) - 1,
+        target_demand=0,
+        nodes_to_avoid=nodes_to_avoid,
+    )
+    paths, cost, max_flow = results[0]
+
+    fig = visualize_network_with_paths(capacity_matrix, cost_matrix, paths, max_flow)
+    st.pyplot(fig)
+
     st.subheader("Computation")
 
     is_possible = check_if_solution_is_possible(
